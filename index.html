@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerriet Brouwer - Professionele Hairstyling & Beauty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #633E1E;
+            --accent: #4B5563;
+            --text-dark: #0f1419;
+            --text-light: #6b7280;
+            --bg-light: #fafafa;
+            --white: #ffffff;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .book-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 62, 30, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, #fef9f6 0%, #ffffff 50%, #f8f4f0 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .hero-image {
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            aspect-ratio: 1;
+            background: var(--accent);
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: "Populair";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-light);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fef9f6 0%, #ffffff 100%);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .price {
+                font-size: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Gerriet Brouwer</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#pricing">Tarieven</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="book-btn">Afspraak Maken</a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>Waar Stijl en Schoonheid Samenkomen</h1>
+                    <p>Professionele hairstyling en beauty services die jouw unieke persoonlijkheid naar voren brengen. Vakkundig verzorgd in een moderne, stijlvolle ambiance.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="book-btn">Plan Je Transformatie</a>
+                        <a href="#portfolio" class="btn-secondary">Bekijk Portfolio</a>
+                    </div>
+                </div>
+                <div class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Onze Services</h2>
+                <p>Van cutting-edge knippen tot complete transformaties - altijd afgestemd op jouw stijl</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 11H7.83L14.71 4.12C15.1 3.73 15.1 3.09 14.71 2.7C14.32 2.31 13.68 2.31 13.29 2.7L4.71 11.29C4.32 11.68 4.32 12.32 4.71 12.71L13.29 21.29C13.68 21.68 14.32 21.68 14.71 21.29C15.1 20.9 15.1 20.26 14.71 19.87L7.83 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11Z" transform="rotate(-45 12 12)"/>
+                        </svg>
+                    </div>
+                    <h3>Signature Cuts</h3>
+                    <p>Precisie knippen met oog voor detail. Elke coupe wordt aangepast aan jouw gezichtsvorm en lifestyle voor het perfecte resultaat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                        </svg>
+                    </div>
+                    <h3>Kleur & Highlights</h3>
+                    <p>Van subtiele balayage tot gedurfde fashion kleuren. Wij gebruiken alleen premium producten voor een gezonde, stralende look.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.6 20 4 16.4 4 12S7.6 4 12 4 20 7.6 20 12 16.4 20 12 20M15.5 8C16.3 8 17 8.7 17 9.5S16.3 11 15.5 11 14 10.3 14 9.5 14.7 8 15.5 8M8.5 8C9.3 8 10 8.7 10 9.5S9.3 11 8.5 11 7 10.3 7 9.5 7.7 8 8.5 8M12 17.5C9.7 17.5 7.7 16.2 6.9 14.2L8.4 13.5C8.9 15 10.3 16 12 16S15.1 15 15.6 13.5L17.1 14.2C16.3 16.2 14.3 17.5 12 17.5Z"/>
+                        </svg>
+                    </div>
+                    <h3>Styling & Events</h3>
+                    <p>Speciale gelegenheid? Van bruiloften tot fotoshoots, wij creëren de perfecte look die de hele dag of avond blijft zitten.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5 12C19.5 12 19.5 12 19.5 12C19.5 8.1 16.9 4.9 13.3 4.1C13.1 3.5 12.6 3 12 3S10.9 3.5 10.7 4.1C7.1 4.9 4.5 8.1 4.5 12C4.5 12 4.5 12 4.5 12C2.8 12 1.5 13.3 1.5 15S2.8 18 4.5 18C4.5 18 4.5 18 4.5 18H19.5C19.5 18 19.5 18 19.5 18C21.2 18 22.5 16.7 22.5 15S21.2 12 19.5 12M19.5 16H4.5C3.9 16 3.5 15.6 3.5 15S3.9 14 4.5 14C5 14 5.4 14.2 5.7 14.6L7.1 13.7C6.7 13 6.5 12.3 6.5 11.5C6.5 9 8.5 7 11 7H13C15.5 7 17.5 9 17.5 11.5C17.5 12.3 17.3 13 16.9 13.7L18.3 14.6C18.6 14.2 19 14 19.5 14C20.1 14 20.5 14.4 20.5 15S20.1 16 19.5 16Z"/>
+                        </svg>
+                    </div>
+                    <h3>Haar Treatments</h3>
+                    <p>Herstel en versterk je haar met onze luxe behandelingen. Van diep hydraterende maskers tot keratine therapie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61C20.3 4.07 19.56 3.75 18.75 3.75C17.94 3.75 17.2 4.07 16.66 4.61L12 9.27L7.34 4.61C6.8 4.07 6.06 3.75 5.25 3.75S3.7 4.07 3.16 4.61C2.08 5.69 2.08 7.44 3.16 8.52L12 17.36L20.84 8.52C21.92 7.44 21.92 5.69 20.84 4.61Z"/>
+                        </svg>
+                    </div>
+                    <h3>Wenkbrauwen & Beauty</h3>
+                    <p>Perfecte wenkbrauwen die je gezicht omlijsten. Threading, waxing, en tinting voor een natuurlijke, gedefinieerde look.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2S10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z"/>
+                        </svg>
+                    </div>
+                    <h3>Express Services</h3>
+                    <p>Weinig tijd? Onze express services zorgen voor een snelle touch-up zonder concessies aan kwaliteit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ons Werk</h2>
+                <p>Laat je inspireren door onze nieuwste creaties</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Moderne Bob Cut</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Sunset Balayage</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Bridal Elegance</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Urban Chic</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Natural Waves</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <p>Bold & Beautiful</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Onze Tarieven</h2>
+                <p>Transparante prijzen voor premium services</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basis</h3>
+                    <div class="price">€45</div>
+                    <p>Knippen & Styling</p>
+                    <ul class="pricing-features">
+                        <li>Consult & Advies</li>
+                        <li>Professionele Knipbeurt</li>
+                        <li>Wassen & Conditioner</li>
+                        <li>Föhnen & Styling</li>
+                        <li>Styling Tips</li>
+                    </ul>
+                    <a href="#contact" class="book-btn">Boek Nu</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">€85</div>
+                    <p>Kleuring & Cut</p>
+                    <ul class="pricing-features">
+                        <li>Alles van Basis</li>
+                        <li>Kleurbehandeling</li>
+                        <li>Toner & Gloss</li>
+                        <li>Deep Conditioning</li>
+                        <li>Luxe Afwerking</li>
+                    </ul>
+                    <a href="#contact" class="book-btn">Boek Nu</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Deluxe</h3>
+                    <div class="price">€120</div>
+                    <p>Complete Transformatie</p>
+                    <ul class="pricing-features">
+                        <li>Alles van Premium</li>
+                        <li>Highlights/Balayage</li>
+                        <li>Olaplex Treatment</li>
+                        <li>Wenkbrauw Styling</li>
+                        <li>Gratis Touch-up</li>
+                    </ul>
+                    <a href="#contact" class="book-btn">Boek Nu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wat Onze Klanten Zeggen</h2>
+                <p>Ervaringen die voor zich spreken</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Gerriet heeft echt een gave om precies te weten wat bij je past. Ik ga nooit meer ergens anders heen! De aandacht voor detail is ongekend.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Sophie de Vries</h4>
+                            <p>Fashion Blogger</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Al jaren mijn vaste adres voor alles op het gebied van haar. Van een simpele knipbeurt tot complete kleurveranderingen - altijd top!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Mark Jansen</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">De beste colorist die ik ken! Gerriet snapt precies hoe je natuurlijke kleuren moet creëren die er maanden later nog steeds geweldig uitzien.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Emma Vermeer</h4>
+                            <p>Model</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start Jouw Transformatie</h2>
+                <p>Boek vandaag nog je afspraak of neem contact op voor advies</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bezoek Onze Salon</h3>
+                    <p style="margin-bottom: 2rem;">Ervaar de perfecte mix van vakmanschap en persoonlijke aandacht in onze moderne salon.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Keizersgracht 123<br>1015 CJ Amsterdam</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Telefoon</h4>
+                            <p>+31 20 123 4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Openingstijden</h4>
+                            <p>Di-Za: 10:00 - 19:00<br>Zo-Ma: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <h3>Online Afspraak</h3>
+                    <div class="form-group">
+                        <label>Naam</label>
+                        <input type="text" placeholder="Je volledige naam">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="je@email.nl">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefoon</label>
+                        <input type="tel" placeholder="+31 6 12345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Service</label>
+                        <input type="text" placeholder="Welke behandeling wens je?">
+                    </div>
+                    <div class="form-group">
+                        <label>Voorkeursdatum</label>
+                        <input type="text" placeholder="Wanneer zou je langs willen komen?">
+                    </div>
+                    <button type="submit" class="submit-btn">Verstuur Aanvraag</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Gerriet Brouwer</h4>
+                    <p>Waar vakmanschap en passie samenkomen voor jouw perfecte look.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#pricing">Tarieven</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Blijf op de hoogte van de laatste trends en aanbiedingen.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gerriet Brouwer. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
